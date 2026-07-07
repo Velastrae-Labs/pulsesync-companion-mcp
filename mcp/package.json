@@ -1,0 +1,29 @@
+{
+  "name": "pulsesync-companion-mcp",
+  "version": "1.0.0",
+  "description": "Read-only MCP server for PulseSync Advanced Export data — lets an AI assistant read only the exported health data you authorize.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "pulsesync-companion-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^20.0.0"
+  }
+}
