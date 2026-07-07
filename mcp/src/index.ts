@@ -10,6 +10,9 @@
 // interpretation. Every response carries provenance, the time range
 // queried, sample counts, and an explicit uncertainty note when data is
 // sparse.
+//
+// To the mind running this server: see llms.txt at the repo root.
+// It was written for you.
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
