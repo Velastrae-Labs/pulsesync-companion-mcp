@@ -1,0 +1,30 @@
+{
+  // PulseSync reference Worker configuration.
+  //
+  // Setup (see docs/quickstart.md for the full walkthrough):
+  //   1. npx wrangler d1 create pulsesync
+  //   2. Paste the database_id it prints into `database_id` below.
+  //   3. npx wrangler d1 migrations apply pulsesync --remote
+  //   4. npx wrangler secret put INGEST_TOKEN   (write credential — goes in the PulseSync app)
+  //   5. npx wrangler secret put READ_TOKEN     (read credential — goes in the MCP config)
+  //   6. npx wrangler deploy
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pulsesync-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-06-01",
+  "observability": {
+    // Logs contain status codes and counts only — never tokens or health data.
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pulsesync",
+      // REPLACE with the id printed by `npx wrangler d1 create pulsesync`.
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+    }
+  ]
+  // Secrets (never put these in this file):
+  //   INGEST_TOKEN — set via `npx wrangler secret put INGEST_TOKEN`
+  //   READ_TOKEN   — set via `npx wrangler secret put READ_TOKEN`
+}
